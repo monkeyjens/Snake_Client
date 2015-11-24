@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="grizzly-servlet-webserver-1.9.36">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/grizzly-servlet-webserver-1.9.36.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
