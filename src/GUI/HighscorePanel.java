@@ -4,7 +4,7 @@ package GUI;
  * Created by jenssillasen on 24/11/2015.
  */
 
-        import javax.swing.*;
+import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class HighscorePanel extends JPanel {

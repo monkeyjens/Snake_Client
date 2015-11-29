@@ -17,8 +17,9 @@ public class PlayGamePanel extends JPanel {
         playgamereturnBtn.setActionCommand("playgamereturnBtn");
         add(playgamereturnBtn);
 
-        JLabel label = new JLabel("New label");
+        JLabel label = new JLabel("notworking.jpeg");
         label.setBounds(36, 228, 61, 16);
+
         add(label);
 
         howtoplayBtn = new JButton("How to play");

@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 public class Controller  {
 
     private Myframe mainframe;
-    ServerConnection con = new ServerConnection();
+    ServerCon con = new ServerCon();
 
     public Controller() {
 
@@ -87,14 +87,32 @@ public class Controller  {
                         break;
 
                     case "deleteBtn":
-                        clearAllTextFields();
                         mainframe.show(Myframe.DELETE);
+                        clearAllTextFields();
+                        break;
+
+                    case "deletegameBtn":
+                        int gameId;
+
+                        try {
+                            gameId = Integer.parseInt(mainframe.getDeletePanel().getGameId());
+                        }
+                        catch(NumberFormatException ex){
+                            break;
+                        }
+                        boolean success = con.deleteGame(gameId);
+                        if (success) {
+                            JOptionPane.showMessageDialog(mainframe, "Game " + gameId + " was deleted");
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(mainframe, "Game " + gameId + " was not deleted");
+                        }
                         break;
 
                     case "returndeleteBtn":
                         clearAllTextFields();
                         mainframe.show(Myframe.USERMENU);
-
+                        break;
                     case "logoutBtn":
                         clearAllTextFields();
                         mainframe.show(Myframe.LOGIN);

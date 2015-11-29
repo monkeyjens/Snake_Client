@@ -1,10 +1,10 @@
 package GUI;
 
-        import javax.swing.*;
+import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class DeletePanel extends JPanel {
-    private JTextField textField;
+    private JTextField deleteTF;
     private JButton deletegameBtn;
     private JButton returndeleteBtn;
     /**
@@ -21,10 +21,10 @@ public class DeletePanel extends JPanel {
         lblInsertGameId.setBounds(19, 73, 128, 16);
         add(lblInsertGameId);
 
-        textField = new JTextField();
-        textField.setBounds(148, 68, 130, 26);
-        add(textField);
-        textField.setColumns(10);
+        deleteTF = new JTextField();
+        deleteTF.setBounds(148, 68, 130, 26);
+        add(deleteTF);
+        deleteTF.setColumns(10);
 
         deletegameBtn = new JButton("Delete forever");
         deletegameBtn.setActionCommand("deletegameBtn");
@@ -43,5 +43,11 @@ public class DeletePanel extends JPanel {
     {
         deletegameBtn.addActionListener(l);
         returndeleteBtn.addActionListener(l);
+
     }
+    public String getGameId(){
+        return deleteTF.getText();
+
+    }
+
 }
