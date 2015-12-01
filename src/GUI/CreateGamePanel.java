@@ -10,6 +10,7 @@ public class CreateGamePanel extends JPanel {
     private JTextField userMovesTF;
     private JTextField mapsizeTF;
     private JButton playGameBtn;
+    private JTextField mapNameTF;
     /**
      * Create the panel.
      */
@@ -57,6 +58,15 @@ public class CreateGamePanel extends JPanel {
         howtoplayBtn.setActionCommand("howtoplayBtn");
         add(howtoplayBtn);
 
+        JLabel labelGameName = new JLabel("Game name:");
+        labelGameName.setBounds(27, 5, 191, 16);
+        add(labelGameName);
+
+        mapNameTF = new JTextField();
+        mapNameTF.setBounds(27, 15, 134, 26);
+        mapNameTF.setActionCommand("mapNameTF");
+        mapNameTF.setColumns(10);
+        add(mapNameTF);
 
     }
     public void addActionListener(ActionListener l)
@@ -64,6 +74,18 @@ public class CreateGamePanel extends JPanel {
         playgamereturnBtn.addActionListener(l);
         howtoplayBtn.addActionListener(l);
         playGameBtn.addActionListener(l);
+        mapNameTF.addActionListener(l);
     }
 
+    public int getMapSize(){
+        return Integer.parseInt(mapsizeTF.getText());
+    }
+
+    public String getGameName(){
+        return mapNameTF.getText();
+    }
+
+    public String getUserMoves() {
+        return userMovesTF.getText();
+    }
 }

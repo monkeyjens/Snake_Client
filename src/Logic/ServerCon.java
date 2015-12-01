@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import model.Game;
 import model.Highscore;
 import model.ServerResponse;
 import model.User;
@@ -141,6 +142,23 @@ public class ServerCon {
         Highscore[] scores = new Gson().fromJson(response, Highscore[].class);
         System.out.println("Scores: " + scores);
         return scores;
+    }
+    public Game CreateGame(Game game){
+        String path ="games/";
+        String response;
+        String payload = new Gson().toJson(game, Game.class);
+
+        try {
+            response = httpPost(payload,path);
+        }
+        catch (Exception ex) {
+            return null;
+
+        }
+        System.out.println(response);
+        return null;
+
+
     }
 }
 

@@ -1,6 +1,8 @@
 package Logic;
 
 import GUI.Myframe;
+import model.Game;
+import model.Gamer;
 import model.Highscore;
 import model.User;
 
@@ -14,8 +16,9 @@ import java.awt.event.ActionListener;
 
 public class Controller  {
 
+    private User user;
     private Myframe mainframe;
-    ServerCon con = new ServerCon();
+    private ServerCon con = new ServerCon();
 
     public Controller() {
 
@@ -51,7 +54,7 @@ public class Controller  {
 
                     //login menu muligheder
                     case "LoginBtn":
-                        User user = new User();
+                        user = new User();
                         user.setUsername(mainframe.getLoginUI().getUsernametf().getText());
                         user.setPassword(mainframe.getLoginUI().getUserpwfield().getText());
                         user = con.login(user);
@@ -64,6 +67,18 @@ public class Controller  {
                         mainframe.show(Myframe.PLAYGAME);
                         break;
 
+                    case "playGameBtn":
+                        Gamer gamer = new Gamer();
+                        gamer.setControls(mainframe.getCreategame().getUserMoves());
+                        gamer.setId(user.getId());
+
+                        Game game = new Game();
+                        game.setMapSize(mainframe.getCreategame().getMapSize());
+                        game.setName(mainframe.getCreategame().getGameName());
+                        game.setHost(gamer);
+                        con.CreateGame(game);
+                        clearAllTextFields();
+                        break;
                     case "btnJoinGame":
                         clearAllTextFields();
                         mainframe.show(Myframe.JOINGAME);
