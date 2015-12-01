@@ -39,15 +39,13 @@ public class DeletePanel extends JPanel {
 
 
     }
-    public void addActionListener(ActionListener l)
-    {
+    public void addActionListener(ActionListener l) {
         deletegameBtn.addActionListener(l);
         returndeleteBtn.addActionListener(l);
-
     }
+
     public String getGameId(){
         return deleteTF.getText();
-
     }
 
 }

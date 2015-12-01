@@ -1,9 +1,8 @@
 package GUI;
 
-        import javax.swing.*;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-
 
 public class LoginUI extends JPanel {
     private JTextField usernametf;
@@ -55,26 +54,25 @@ public class LoginUI extends JPanel {
 
 
     }
-    public void addActionListener(ActionListener l)
-    {
+    public void addActionListener(ActionListener l) {
         loginBtn.addActionListener(l);
     }
-
-    public JTextField getUsernametf() {
-        return usernametf;
-    }
-
-    public JTextField getUserpwfield() {
-        return userpwfield;
-    }
-
 
     public JButton getLoginBtn() {
         return loginBtn;
     }
 
+    public void clearTextFields(){
+        usernametf.setText("");
+        userpwfield.setText("");
 
+    }
 
-
+    public String getUsername() {
+        return usernametf.getText();
+    }
+    public String getPassword() {
+        return userpwfield.getText();
+    }
 }
 

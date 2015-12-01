@@ -42,7 +42,6 @@ public class ServerCon {
     }
 
     private String httpGet(String path) {
-
         Client client = Client.create();
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
@@ -54,13 +53,9 @@ public class ServerCon {
         }
 
         return response.getEntity(String.class);
-
-
     }
 
-
     private String httpPost(String json, String path) {
-
         Client client = Client.create();
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
@@ -71,16 +66,11 @@ public class ServerCon {
                     + response.getStatus());
         }
 
-     return response.getEntity(String.class);
-
-
-
-
+        return response.getEntity(String.class);
     }
+
     private String httpDelete(String path){
-
         Client client = Client.create();
-
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").delete(ClientResponse.class);
 
@@ -90,14 +80,10 @@ public class ServerCon {
         }
 
         return response.getEntity(String.class);
-
-
     }
-
 
     public User login(User user) {
         String payload = new Gson().toJson(user, User.class);
-        System.out.println("Payload to send: " + payload);
         String response;
 
         try {
@@ -107,7 +93,6 @@ public class ServerCon {
             return null;
         }
 
-
         User usr = new User();
         usr.setUsername(user.getUsername());
         usr.setPassword(user.getPassword());
@@ -115,20 +100,18 @@ public class ServerCon {
 
         return usr;
     }
-    public boolean deleteGame(int gameId){
 
+    public boolean deleteGame(String gameId){
         String path ="games/"+gameId;
         try {
-         httpDelete(path);
-
+            httpDelete(path);
         }
         catch (Exception ex) {
             return false;
         }
          return true;
-
-
     }
+
     public Highscore[] getHighscore(){
         String path = "scores/";
         String response;
@@ -138,9 +121,7 @@ public class ServerCon {
                 catch (Exception ex ) {
                 return null;
                 }
-        System.out.println(response);
         Highscore[] scores = new Gson().fromJson(response, Highscore[].class);
-        System.out.println("Scores: " + scores);
         return scores;
     }
     public Game CreateGame(Game game){
@@ -153,12 +134,8 @@ public class ServerCon {
         }
         catch (Exception ex) {
             return null;
-
         }
-        System.out.println(response);
         return null;
-
-
     }
 }
 
