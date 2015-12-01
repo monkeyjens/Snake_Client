@@ -19,6 +19,7 @@ public class Controller  {
     private User user;
     private Myframe mainframe;
     private ServerCon con = new ServerCon();
+    private Game[] games;
 
     public Controller() {
 
@@ -79,7 +80,28 @@ public class Controller  {
                         break;
 
                     case "btnJoinGame":
+                        int gameNo = mainframe.getJoinGamePanel().getSelectedGame();
+                        Game currentGame = games[gameNo];
+                        Gamer opponent = new Gamer();
+                        opponent.setId(user.getId());
+                        currentGame.setOpponent(opponent);
+                        System.out.println(currentGame.getName());
+                        boolean s = con.joinGame(currentGame);
+                        games = con.listOpenGames();
+                        mainframe.getJoinGamePanel().populateOpenGameTable(games);
+
+                        if (s) {
+
+                        }
+                        else {
+
+                        }
+                        break;
+
+                    case "btnJoinGamePanel":
+                        games = con.listOpenGames();
                         mainframe.show(Myframe.JOINGAME);
+                        mainframe.getJoinGamePanel().populateOpenGameTable(games);
                         break;
 
                     case "createGameBtn":
@@ -100,7 +122,7 @@ public class Controller  {
 
                     case "playgamereturnBtn":
 
-                        mainframe.show(Myframe.PLAYGAME);
+                        mainframe.show(Myframe.USERMENU);
                         break;
 
                     case "highscoreBtn":

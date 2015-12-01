@@ -68,6 +68,19 @@ public class ServerCon {
 
         return response.getEntity(String.class);
     }
+    private String httpPut(String json, String path) {
+        Client client = Client.create();
+
+        WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+        ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
+
+        if (response.getStatus() != 200 && response.getStatus() != 201) {
+            throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+        }
+
+        return response.getEntity(String.class);
+    }
 
     private String httpDelete(String path){
         Client client = Client.create();
@@ -115,12 +128,11 @@ public class ServerCon {
     public Highscore[] getHighscore(){
         String path = "scores/";
         String response;
-                try {
-                    response = httpGet(path);
-                }
-                catch (Exception ex ) {
-                return null;
-                }
+        try {
+            response = httpGet(path);
+        } catch (Exception ex ) {
+            return null;
+        }
         Highscore[] scores = new Gson().fromJson(response, Highscore[].class);
         return scores;
     }
@@ -136,6 +148,33 @@ public class ServerCon {
             return null;
         }
         return null;
+    }
+
+    public Game[] listOpenGames() {
+        String path = "games/open/";
+        String response;
+
+        try {
+            response = httpGet(path);
+
+        } catch (Exception ex) {
+            return null;
+        }
+        Game[] games = new Gson().fromJson(response, Game[].class);
+        return games;
+    }
+
+    public boolean joinGame(Game game){
+        String path = "games/join/";
+        String payload = new Gson().toJson(game, Game.class);
+
+        try {
+            httpPut(payload, path);
+        }
+        catch ( Exception ex) {
+            return false;
+        }
+        return true;
     }
 }
 

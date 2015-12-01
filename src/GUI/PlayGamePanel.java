@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class PlayGamePanel extends JPanel {
     private JButton playgamereturnBtn;
     private JButton createGameBtn;
-    private JButton btnJoinGame;
+    private JButton btnJoinGamePanel;
     /**
      * Create the panel.
      */
@@ -24,10 +24,10 @@ public class PlayGamePanel extends JPanel {
         createGameBtn.setActionCommand("createGameBtn");
         add(createGameBtn);
 
-        btnJoinGame  = new JButton("Join game");
-        btnJoinGame.setBounds(315, 24, 117, 29);
-        btnJoinGame.setActionCommand("btnJoinGame");
-        add(btnJoinGame);
+        btnJoinGamePanel = new JButton("Join game");
+        btnJoinGamePanel.setBounds(315, 24, 117, 29);
+        btnJoinGamePanel.setActionCommand("btnJoinGamePanel");
+        add(btnJoinGamePanel);
 
         JLabel lblCreateGame = new JLabel("GAME");
         lblCreateGame.setBounds(27, 29, 391, 16);
@@ -39,7 +39,7 @@ public class PlayGamePanel extends JPanel {
     {
         playgamereturnBtn.addActionListener(l);
         createGameBtn.addActionListener(l);
-        btnJoinGame.addActionListener(l);
+        btnJoinGamePanel.addActionListener(l);
     }
 
 }
