@@ -1,6 +1,7 @@
 package Logic;
 
 import GUI.Myframe;
+import model.Highscore;
 import model.User;
 
 import javax.swing.*;
@@ -57,18 +58,26 @@ public class Controller  {
                         clearAllTextFields();
                         break;
 
-                    //Usermenu funktioner
-
                     case "playBtn":
                         clearAllTextFields();
                         mainframe.show(Myframe.PLAYGAME);
                         break;
 
+                    case "btnJoinGame":
+                        clearAllTextFields();
+                        mainframe.show(Myframe.JOINGAME);
+                        break;
+
+                    case "joingamereturnBtn":
+                        clearAllTextFields();
+                        mainframe.show(Myframe.USERMENU);
+                        break;
+
                     case "howtoplayBtn":
                         clearAllTextFields();
-                        JOptionPane.showMessageDialog(mainframe, "Spillet styres med w ( ↑ ) , a ( ←) , s ( ↓ ) , d ( → )\n "
-                                + "Du indtaster den rute som din slange skal bevæge sig,\n hvorefter din modstand indtaster sine moves.\n Banen er 9 ryk i højden og bredden.\n Personen der løber længst, uden at krydse modstanderens rute vinder");
-
+                        JOptionPane.showMessageDialog(mainframe, "The game is controlled with w ( ↑ ) , a ( ←) , s ( ↓ ) , d ( → )\n "
+                                + "∞ What you insert is your snakes path,\n ∞ and if you're the host you will set the size of the map \n ∞ For example if the field is set to be '9',\n" +
+                                " ∞ Its possible to move 9 times before you hit a wall \n ∞ The opponent will now insert his moves\n ∞ When both players have comitted their moves, the game starts.  \n ∞ The player that runs further, without going into ur opponents snake or the wall \n ∞ ... Wins the game! Good Luck, Have Fun and play safe");
                         break;
 
                     case "playgamereturnBtn":
@@ -77,8 +86,10 @@ public class Controller  {
                         break;
 
                     case "highscoreBtn":
-                        clearAllTextFields();
+                        Highscore[] highscores = con.getHighscore();
                         mainframe.show(Myframe.HIGHSCORE);
+                        mainframe.getHighscorePanel().populateHighScoreTable(highscores);
+                        clearAllTextFields();
                         break;
 
                     case "returnhighscoreBtn":

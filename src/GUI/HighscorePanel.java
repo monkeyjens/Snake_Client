@@ -4,7 +4,10 @@ package GUI;
  * Created by jenssillasen on 24/11/2015.
  */
 
+import model.Highscore;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionListener;
 
 public class HighscorePanel extends JPanel {
@@ -55,7 +58,7 @@ public class HighscorePanel extends JPanel {
         textField_2.setBounds(350, 134, 94, 21);
         add(textField_2);
 
-        table = new JTable();
+        table = new JTable(new DefaultTableModel(new Object[]{"username", "score"}, 0));
         table.setBounds(39, 60, 179, 184);
         add(table);
 
@@ -68,5 +71,13 @@ public class HighscorePanel extends JPanel {
     public void addActionListener(ActionListener l)
     {
         returnhighscoreBtn.addActionListener(l);
+    }
+
+    public void populateHighScoreTable(Highscore[] scores) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+
+        for(Highscore score : scores) {
+            model.addRow(new Object[]{score.getUser().getUsername(), score.getScore()});
+        }
     }
 }

@@ -138,9 +138,9 @@ public class ServerCon {
                 return null;
                 }
         System.out.println(response);
-         return new Gson().fromJson(response,Highscore[].class);
-
-
+        Highscore[] scores = new Gson().fromJson(response, Highscore[].class);
+        System.out.println("Scores: " + scores);
+        return scores;
     }
 }
 
