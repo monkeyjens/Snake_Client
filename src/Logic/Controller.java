@@ -36,6 +36,7 @@ public class Controller  {
         mainframe.getHighscorePanel().addActionListener(new MainActionlistener());
         mainframe.getDeletePanel().addActionListener(new MainActionlistener());
         mainframe.getPlayGamePanel().addActionListener(new MainActionlistener());
+        mainframe.getCreategame().addActionListener(new MainActionlistener());
 
     }
     private class MainActionlistener implements ActionListener
@@ -68,9 +69,14 @@ public class Controller  {
                         mainframe.show(Myframe.JOINGAME);
                         break;
 
+                    case "createGameBtn":
+                        clearAllTextFields();
+                        mainframe.show(Myframe.CREATE);
+                        break;
+
                     case "joingamereturnBtn":
                         clearAllTextFields();
-                        mainframe.show(Myframe.USERMENU);
+                        mainframe.show(Myframe.PLAYGAME);
                         break;
 
                     case "howtoplayBtn":
@@ -82,7 +88,7 @@ public class Controller  {
 
                     case "playgamereturnBtn":
                         clearAllTextFields();
-                        mainframe.show(Myframe.USERMENU);
+                        mainframe.show(Myframe.PLAYGAME);
                         break;
 
                     case "highscoreBtn":

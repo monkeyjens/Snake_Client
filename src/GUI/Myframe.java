@@ -14,6 +14,7 @@ public class Myframe extends JFrame {
     public static final String USERMENU = "USERMENU";
     public static final String JOINGAME = "JOINGAME";
     public static final String DELETE = "DELETE";
+    public static final String CREATE = "CREATE";
 
 
 
@@ -24,6 +25,7 @@ public class Myframe extends JFrame {
     private DeletePanel deletepanel;
     private PlayGamePanel playgame;
     private UserMenuPanel usermenu;
+    private CreateGamePanel creategame;
     private CardLayout c;
 
     /** * Create the frame.*/
@@ -55,7 +57,8 @@ public class Myframe extends JFrame {
         usermenu = new UserMenuPanel();
         contentPane.add(usermenu, USERMENU);
 
-
+        creategame = new CreateGamePanel();
+        contentPane.add(creategame, CREATE);
     }
     public void show (String card) {
         c.show(contentPane,card);
@@ -84,5 +87,6 @@ public class Myframe extends JFrame {
     {
         return usermenu;
     }
+    public CreateGamePanel getCreategame() { return creategame; }
 
 }
