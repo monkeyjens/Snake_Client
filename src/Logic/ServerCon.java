@@ -68,6 +68,7 @@ public class ServerCon {
 
         return response.getEntity(String.class);
     }
+
     private String httpPut(String json, String path) {
         Client client = Client.create();
 
@@ -82,7 +83,7 @@ public class ServerCon {
         return response.getEntity(String.class);
     }
 
-    private String httpDelete(String path){
+    private String httpDelete(String path) {
         Client client = Client.create();
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").delete(ClientResponse.class);
@@ -101,8 +102,7 @@ public class ServerCon {
 
         try {
             response = httpPost(payload, "login/");
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             return null;
         }
 
@@ -114,37 +114,36 @@ public class ServerCon {
         return usr;
     }
 
-    public boolean deleteGame(String gameId){
-        String path ="games/"+gameId;
+    public boolean deleteGame(String gameId) {
+        String path = "games/" + gameId;
         try {
             httpDelete(path);
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             return false;
         }
-         return true;
+        return true;
     }
 
-    public Highscore[] getHighscore(){
+    public Highscore[] getHighscore() {
         String path = "scores/";
         String response;
         try {
             response = httpGet(path);
-        } catch (Exception ex ) {
+        } catch (Exception ex) {
             return null;
         }
         Highscore[] scores = new Gson().fromJson(response, Highscore[].class);
         return scores;
     }
-    public Game CreateGame(Game game){
-        String path ="games/";
+
+    public Game CreateGame(Game game) {
+        String path = "games/";
         String response;
         String payload = new Gson().toJson(game, Game.class);
 
         try {
-            response = httpPost(payload,path);
-        }
-        catch (Exception ex) {
+            response = httpPost(payload, path);
+        } catch (Exception ex) {
             return null;
         }
         return null;
@@ -164,17 +163,32 @@ public class ServerCon {
         return games;
     }
 
-    public boolean joinGame(Game game){
+    public boolean joinGame(Game requestGame) {
         String path = "games/join/";
-        String payload = new Gson().toJson(game, Game.class);
+        String payload = new Gson().toJson(requestGame, Game.class);
 
         try {
             httpPut(payload, path);
-        }
-        catch ( Exception ex) {
+        } catch (Exception ex) {
             return false;
         }
         return true;
+    }
+
+    public Game[] startGame(Game game) {
+
+        String path = "games/start/";
+        String payload = new Gson().toJson(game);
+
+        try {
+            httpPut(payload, path);
+        } catch (Exception ex) {
+            return null;
+
+        }
+        return null;
+
+
     }
 }
 

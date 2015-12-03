@@ -69,7 +69,7 @@ public class Controller  {
 
                     case "playGameBtn":
                         Gamer gamer = new Gamer();
-                        gamer.setControls(mainframe.getCreategame().getUserMoves());
+                        gamer.setControls(mainframe.getCreategame().getUserMoves()); //samme til opponent
                         gamer.setId(user.getId());
 
                         Game game = new Game();
@@ -77,18 +77,26 @@ public class Controller  {
                         game.setName(mainframe.getCreategame().getGameName());
                         game.setHost(gamer);
                         con.CreateGame(game);
+                        mainframe.getCreategame().clearTextFields();
+                        JOptionPane.showMessageDialog(mainframe,"The Game was succesfully created");
+
                         break;
 
                     case "btnJoinGame":
                         int gameNo = mainframe.getJoinGamePanel().getSelectedGame();
                         Game currentGame = games[gameNo];
                         Gamer opponent = new Gamer();
+                        opponent.setControls(mainframe.getJoinGamePanel().opponentMovesTF());
+
                         opponent.setId(user.getId());
                         currentGame.setOpponent(opponent);
                         System.out.println(currentGame.getName());
                         boolean s = con.joinGame(currentGame);
                         games = con.listOpenGames();
                         mainframe.getJoinGamePanel().populateOpenGameTable(games);
+
+                        con.startGame(currentGame);
+                        //JOptionPane.showMessageDialog(mainframe, "The Game joined");
 
                         if (s) {
 
@@ -108,11 +116,6 @@ public class Controller  {
                         mainframe.show(Myframe.CREATE);
                         break;
 
-                    case "joingamereturnBtn":
-
-                        mainframe.show(Myframe.PLAYGAME);
-                        break;
-
                     case "howtoplayBtn":
 
                         JOptionPane.showMessageDialog(mainframe, "The game is controlled with w ( ↑ ) , a ( ←) , s ( ↓ ) , d ( → )\n "
@@ -120,21 +123,11 @@ public class Controller  {
                                 " ∞ Its possible to move 9 times before you hit a wall \n ∞ The opponent will now insert his moves\n ∞ When both players have comitted their moves, the game starts.  \n ∞ The player that runs further, without going into ur opponents snake or the wall \n ∞ ... Wins the game! Good Luck, Have Fun and play safe");
                         break;
 
-                    case "playgamereturnBtn":
-
-                        mainframe.show(Myframe.USERMENU);
-                        break;
-
                     case "highscoreBtn":
                         Highscore[] highscores = con.getHighscore();
                         mainframe.show(Myframe.HIGHSCORE);
                         mainframe.getHighscorePanel().populateHighScoreTable(highscores);
 
-                        break;
-
-                    case "returnhighscoreBtn":
-
-                        mainframe.show(Myframe.USERMENU);
                         break;
 
                     case "deleteBtn":
@@ -153,6 +146,22 @@ public class Controller  {
                         }
                         break;
 
+                    case "playgamereturnBtn":
+
+                        mainframe.show(Myframe.USERMENU);
+                        break;
+                    case "joingamereturnBtn":
+
+                        mainframe.show(Myframe.PLAYGAME);
+                        break;
+                    case "createGameReturnBtn":
+
+                        mainframe.show(Myframe.PLAYGAME);
+                        break;
+
+                    case "returnhighscoreBtn":
+                        mainframe.show(Myframe.USERMENU);
+                        break;
                     case "returndeleteBtn":
 
                         mainframe.show(Myframe.USERMENU);

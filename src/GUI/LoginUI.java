@@ -55,6 +55,7 @@ public class LoginUI extends JPanel {
 
     }
     public void addActionListener(ActionListener l) {
+
         loginBtn.addActionListener(l);
     }
 

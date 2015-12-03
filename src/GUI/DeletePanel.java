@@ -28,7 +28,7 @@ public class DeletePanel extends JPanel {
 
         deletegameBtn = new JButton("Delete forever");
         deletegameBtn.setActionCommand("deletegameBtn");
-        deletegameBtn.setBounds(148, 118, 117, 29);
+        deletegameBtn.setBounds(148, 100, 130, 29);
         add(deletegameBtn);
 
 

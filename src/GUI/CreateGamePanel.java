@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 
 public class CreateGamePanel extends JPanel {
-    private JButton playgamereturnBtn;
+    private JButton createGameReturnBtn;
     private JButton howtoplayBtn;
     private JTextField userMovesTF;
     private JTextField mapsizeTF;
@@ -16,24 +16,6 @@ public class CreateGamePanel extends JPanel {
      */
     public CreateGamePanel() {
         setLayout(null);
-
-        playgamereturnBtn = new JButton("Return");
-        playgamereturnBtn.setBounds(297, 251, 117, 29);
-        playgamereturnBtn.setActionCommand("playgamereturnBtn");
-        add(playgamereturnBtn);
-
-
-        JLabel lblMakeYouMoves = new JLabel("Insert your moves in the field below\n");
-        lblMakeYouMoves.setBounds(27, 95, 236, 16);
-        add(lblMakeYouMoves);
-
-        JLabel lblSetTheSize = new JLabel("Set the size of the map:");
-        lblSetTheSize.setBounds(27, 199, 191, 16);
-        add(lblSetTheSize);
-
-        JLabel lblW = new JLabel("w ( ↑ ) , a ( ←) , s ( ↓ ) , d ( → )");
-        lblW.setBounds(27, 111, 326, 16);
-        add(lblW);
 
         userMovesTF = new JTextField();
         userMovesTF.setBounds(27, 123, 200, 72);
@@ -48,30 +30,46 @@ public class CreateGamePanel extends JPanel {
         add(mapsizeTF);
 
         playGameBtn = new JButton("Play Game");
-        playGameBtn.setBounds(27, 243, 117, 40);
+        playGameBtn.setBounds(27, 260, 117, 40);
         playGameBtn.setActionCommand("playGameBtn");
         add(playGameBtn);
 
-
         howtoplayBtn = new JButton("How to play");
-        howtoplayBtn.setBounds(27, 57, 117, 29);
+        howtoplayBtn.setBounds(327, 220, 117, 29);
         howtoplayBtn.setActionCommand("howtoplayBtn");
         add(howtoplayBtn);
 
-        JLabel labelGameName = new JLabel("Game name:");
-        labelGameName.setBounds(27, 5, 191, 16);
-        add(labelGameName);
-
         mapNameTF = new JTextField();
-        mapNameTF.setBounds(27, 15, 134, 26);
+        mapNameTF.setBounds(27, 50, 134, 26);
         mapNameTF.setActionCommand("mapNameTF");
         mapNameTF.setColumns(10);
         add(mapNameTF);
 
+        createGameReturnBtn = new JButton("Return");
+        createGameReturnBtn.setBounds(327, 245, 117, 29);
+        createGameReturnBtn.setActionCommand("createGameReturnBtn");
+        add(createGameReturnBtn);
+
+        JLabel labelGameName = new JLabel("Game name:");
+        labelGameName.setBounds(31, 30, 191, 16);
+        add(labelGameName);
+
+        JLabel lblMakeYouMoves = new JLabel("Insert your moves in the field below\n");
+        lblMakeYouMoves.setBounds(31, 85, 236, 16);
+        add(lblMakeYouMoves);
+
+        JLabel lblSetTheSize = new JLabel("Set the size of the map:");
+        lblSetTheSize.setBounds(31, 199, 191, 16);
+        add(lblSetTheSize);
+
+        JLabel lblW = new JLabel("w ( ↑ ) , a ( ←) , s ( ↓ ) , d ( → )");
+        lblW.setBounds(31, 105, 326, 16);
+        add(lblW);
+
     }
     public void addActionListener(ActionListener l)
     {
-        playgamereturnBtn.addActionListener(l);
+        createGameReturnBtn.addActionListener(l);
         howtoplayBtn.addActionListener(l);
         playGameBtn.addActionListener(l);
         mapNameTF.addActionListener(l);
@@ -87,5 +85,11 @@ public class CreateGamePanel extends JPanel {
 
     public String getUserMoves() {
         return userMovesTF.getText();
+    }
+
+    public void clearTextFields() {
+        mapNameTF.setText("");
+        mapsizeTF.setText("");
+        userMovesTF.setText("");
     }
 }

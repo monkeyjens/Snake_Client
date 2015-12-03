@@ -8,31 +8,42 @@ public class PlayGamePanel extends JPanel {
     private JButton playgamereturnBtn;
     private JButton createGameBtn;
     private JButton btnJoinGamePanel;
+    private JLabel snakeLbl;
+    private JLabel reverseSnakeLbl;
     /**
      * Create the panel.
      */
     public PlayGamePanel() {
         setLayout(null);
 
-        playgamereturnBtn = new JButton("Return");
-        playgamereturnBtn.setBounds(297, 251, 117, 29);
-        playgamereturnBtn.setActionCommand("playgamereturnBtn");
-        add(playgamereturnBtn);
-
-        createGameBtn  = new JButton("Create game");
-        createGameBtn.setBounds(27, 243, 117, 40);
-        createGameBtn.setActionCommand("createGameBtn");
-        add(createGameBtn);
-
         btnJoinGamePanel = new JButton("Join game");
-        btnJoinGamePanel.setBounds(315, 24, 117, 29);
+        btnJoinGamePanel.setBounds(190, 50, 117, 29);
         btnJoinGamePanel.setActionCommand("btnJoinGamePanel");
         add(btnJoinGamePanel);
 
-        JLabel lblCreateGame = new JLabel("GAME");
-        lblCreateGame.setBounds(27, 29, 391, 16);
-        add(lblCreateGame);
+        createGameBtn  = new JButton("Create game");
+        createGameBtn.setBounds(190, 80, 117, 29);
+        createGameBtn.setActionCommand("createGameBtn");
+        add(createGameBtn);
 
+        playgamereturnBtn = new JButton("Return");
+        playgamereturnBtn.setBounds(327, 245, 117, 29);
+        playgamereturnBtn.setActionCommand("playgamereturnBtn");
+        add(playgamereturnBtn);
+
+        snakeLbl = new JLabel();
+        snakeLbl.setIcon(new ImageIcon(LoginUI.class.getResource("/Resources/snake256x256left.png")));
+        snakeLbl.setBounds(250, 79, 256, 256);
+        add(snakeLbl);
+
+        reverseSnakeLbl = new JLabel();
+        reverseSnakeLbl.setIcon(new ImageIcon(LoginUI.class.getResource("/Resources/snake256x256reverse.png")));
+        reverseSnakeLbl.setBounds(-6, 79, 256, 256);
+        add(reverseSnakeLbl);
+
+        JLabel lblCreateGame = new JLabel("Choose your Destiny");
+        lblCreateGame.setBounds(188, 20, 391, 16);
+        add(lblCreateGame);
 
     }
     public void addActionListener(ActionListener l)

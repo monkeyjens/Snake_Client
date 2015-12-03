@@ -17,10 +17,6 @@ public class UserMenuPanel extends JPanel {
         setLayout(null);
         setOpaque(false);
 
-        JLabel lblWelcometoTheGenuine = new JLabel("Menu");
-        lblWelcometoTheGenuine.setBounds(172, 41, 34, 16);
-        add(lblWelcometoTheGenuine);
-
         playBtn = new JButton("Play Snake");
         playBtn.setBounds(17, 28, 143, 29);
         playBtn.setActionCommand("playBtn");
@@ -29,17 +25,15 @@ public class UserMenuPanel extends JPanel {
         highscoreBtn = new JButton("Highscores");
         highscoreBtn.setBounds(17, 59, 143, 29);
         highscoreBtn.setActionCommand("highscoreBtn");
-
         add(highscoreBtn);
 
         deleteBtn = new JButton("Delete Matches");
         deleteBtn.setBounds(17, 89, 143, 29);
         deleteBtn.setActionCommand("deleteBtn");
-
         add(deleteBtn);
 
         logoutBtn = new JButton("Log out");
-        logoutBtn.setBounds(314, 265, 130, 29);
+        logoutBtn.setBounds(327, 245, 117, 29);
         logoutBtn.setActionCommand("logoutBtn");
         add(logoutBtn);
 
