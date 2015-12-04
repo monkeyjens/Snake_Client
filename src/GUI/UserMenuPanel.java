@@ -39,7 +39,7 @@ public class UserMenuPanel extends JPanel {
 
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setIcon(new ImageIcon(UserMenuPanel.class.getResource("/Resources/snakeBW.png")));
-        lblNewLabel.setBounds(154, 18, 278, 235);
+        lblNewLabel.setBounds(120, 18, 278, 235);
         add(lblNewLabel);
 
 

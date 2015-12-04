@@ -18,13 +18,13 @@ public class CreateGamePanel extends JPanel {
         setLayout(null);
 
         userMovesTF = new JTextField();
-        userMovesTF.setBounds(27, 123, 200, 72);
+        userMovesTF.setBounds(27, 123, 200, 35);
         userMovesTF.setActionCommand("userMovesTF");
         userMovesTF.setColumns(10);
         add(userMovesTF);
 
         mapsizeTF = new JTextField();
-        mapsizeTF.setBounds(27, 217, 134, 26);
+        mapsizeTF.setBounds(27, 210, 200, 35);
         mapsizeTF.setActionCommand("mapsizeTF");
         mapsizeTF.setColumns(10);
         add(mapsizeTF);
@@ -59,7 +59,7 @@ public class CreateGamePanel extends JPanel {
         add(lblMakeYouMoves);
 
         JLabel lblSetTheSize = new JLabel("Set the size of the map:");
-        lblSetTheSize.setBounds(31, 199, 191, 16);
+        lblSetTheSize.setBounds(31, 192, 191, 16);
         add(lblSetTheSize);
 
         JLabel lblW = new JLabel("w ( ↑ ) , a ( ←) , s ( ↓ ) , d ( → )");

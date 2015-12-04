@@ -94,9 +94,9 @@ public class Controller  {
                         boolean s = con.joinGame(currentGame);
                         games = con.listOpenGames();
                         mainframe.getJoinGamePanel().populateOpenGameTable(games);
-
                         con.startGame(currentGame);
-                        //JOptionPane.showMessageDialog(mainframe, "The Game joined");
+                        mainframe.getJoinGamePanel().clearTextFields();
+                        JOptionPane.showMessageDialog(mainframe, "The Game was joined,played and ended. Check highscore to see if you ranked up");
 
                         if (s) {
 
@@ -127,7 +127,6 @@ public class Controller  {
                         Highscore[] highscores = con.getHighscore();
                         mainframe.show(Myframe.HIGHSCORE);
                         mainframe.getHighscorePanel().populateHighScoreTable(highscores);
-
                         break;
 
                     case "deleteBtn":

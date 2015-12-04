@@ -24,6 +24,7 @@ public class HighscorePanel extends JPanel {
 
         JLabel lblNewLabel = new JLabel("Highscores:");
         lblNewLabel.setFont(new Font("Lithos Pro", Font.BOLD | Font.ITALIC, 20));
+        lblNewLabel.setForeground(new Color(255, 0, 0));
         lblNewLabel.setBounds(144, 23, 142, 30);
         add(lblNewLabel);
 
@@ -45,8 +46,15 @@ public class HighscorePanel extends JPanel {
     public void populateHighScoreTable(Highscore[] scores) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
 
-        for(Highscore score : scores) {
+        for (Highscore score : scores) {
             model.addRow(new Object[]{score.getUser().getUsername(), score.getScore()});
         }
+
+    }
+
+    public JTable getTable() {
+        return table;
     }
 }
+
+

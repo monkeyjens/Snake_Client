@@ -1,5 +1,6 @@
 package GUI;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 
@@ -42,7 +43,10 @@ public class PlayGamePanel extends JPanel {
         add(reverseSnakeLbl);
 
         JLabel lblCreateGame = new JLabel("Choose your Destiny");
-        lblCreateGame.setBounds(188, 20, 391, 16);
+        lblCreateGame.setFont(new Font("Lithos Pro", Font.BOLD | Font.ITALIC, 20));
+        lblCreateGame.setForeground(new Color(255, 0, 0));
+
+        lblCreateGame.setBounds(140, 20, 391, 28);
         add(lblCreateGame);
 
     }

@@ -23,11 +23,11 @@ public class JoinGamePanel extends JPanel {
         setLayout(null);
 
         table = new JTable(new DefaultTableModel(new Object[]{"Gamename", "Size", "Created"}, 0));
-        table.setBounds(39, 60, 350, 150);
+        table.setBounds(39, 60, 350, 100);
         add(table);
 
         btnJoinGame = new JButton("Join game");
-        btnJoinGame.setBounds(40, 250, 182, 29);
+        btnJoinGame.setBounds(40, 267, 182, 29);
         btnJoinGame.setActionCommand("btnJoinGame");
         add(btnJoinGame);
 
@@ -43,19 +43,24 @@ public class JoinGamePanel extends JPanel {
 
 
         opponentMovesTF = new JTextField();
-        opponentMovesTF.setBounds(280, 20, 200, 72);
+        opponentMovesTF.setBounds(39, 195, 200, 35);
         opponentMovesTF.setActionCommand("opponentMovesTF");
         opponentMovesTF.setColumns(10);
         add(opponentMovesTF);
 
         JLabel lblNewLabel = new JLabel("Open Games");
         lblNewLabel.setFont(new Font("Lithos Pro", Font.BOLD | Font.ITALIC, 20));
-        lblNewLabel.setBounds(144, 12, 178, 29);
+        lblNewLabel.setForeground(new Color(255, 0, 0));
+        lblNewLabel.setBounds(167, 12, 178, 29);
         add(lblNewLabel);
 
         JLabel gameNameLbl = new JLabel("Game Name");
         gameNameLbl.setBounds(40, 39, 83, 24);
         add(gameNameLbl);
+
+        JLabel opponentMovesTF = new JLabel("Insert your moves here:");
+        opponentMovesTF.setBounds(44, 182,236, 16);
+        add(opponentMovesTF);
 
         JLabel mapSizeLbl = new JLabel("Map Size");
         mapSizeLbl.setBounds(159, 39, 83, 24);
@@ -88,4 +93,8 @@ public class JoinGamePanel extends JPanel {
         omoves = opponentMovesTF.getText();
         return omoves;
     }
+    public void clearTextFields() {
+        opponentMovesTF.setText("");
+    }
+
 }
