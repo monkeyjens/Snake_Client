@@ -6,7 +6,6 @@ import java.awt.*;
 
 public class Myframe extends JFrame {
 
-
     public static final String LOGIN = "LOGIN";
     public static final String HIGHSCORE = "HIGHSCORE";
     public static final String MENU = "MENU";
@@ -15,8 +14,6 @@ public class Myframe extends JFrame {
     public static final String JOINGAME = "JOINGAME";
     public static final String DELETE = "DELETE";
     public static final String CREATE = "CREATE";
-
-
 
     private JPanel contentPane;
     private LoginUI loginui;

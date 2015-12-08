@@ -38,13 +38,11 @@ public class LoginUI extends JPanel {
         usernametf.setBounds(149, 62, 131, 26);
         add(usernametf);
         usernametf.setColumns(10);
-        usernametf.setText("jesi14ab");
 
         userpwfield = new JTextField();
         userpwfield.setBounds(149, 136, 131, 26);
         add(userpwfield);
         userpwfield.setColumns(10);
-        userpwfield.setText("1337");
 
         loginBtn = new JButton();
         loginBtn.setIcon(new ImageIcon(LoginUI.class.getResource("/Resources/presstoplay.png")));
