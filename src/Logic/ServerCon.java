@@ -10,22 +10,20 @@ import model.ServerResponse;
 import model.User;
 
 /**
- * Created by jenssillasen on 27/11/2015.
+ * This class contains the internal API that communicates with the game server API.
  */
 public class ServerCon {
 
     public ServerCon() {
         this.hostAddress = "http://localhost";
         this.port = 8888;
-
-
     }
 
     private String hostAddress;
     private int port;
 
-
     public void setHostAddress(String hostAddress) {
+
         this.hostAddress = hostAddress;
     }
 
@@ -162,6 +160,7 @@ public class ServerCon {
         Game[] games = new Gson().fromJson(response, Game[].class);
         return games;
     }
+
 
     public boolean joinGame(Game requestGame) {
         String path = "games/join/";

@@ -45,15 +45,11 @@ public class HighscorePanel extends JPanel {
 
     public void populateHighScoreTable(Highscore[] scores) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
 
         for (Highscore score : scores) {
             model.addRow(new Object[]{score.getUser().getUsername(), score.getScore()});
         }
-
-    }
-
-    public JTable getTable() {
-        return table;
     }
 }
 

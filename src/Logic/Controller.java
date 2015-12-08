@@ -97,13 +97,6 @@ public class Controller  {
                         con.startGame(currentGame);
                         mainframe.getJoinGamePanel().clearTextFields();
                         JOptionPane.showMessageDialog(mainframe, "The Game was joined,played and ended. Check highscore to see if you ranked up");
-
-                        if (s) {
-
-                        }
-                        else {
-
-                        }
                         break;
 
                     case "btnJoinGamePanel":
