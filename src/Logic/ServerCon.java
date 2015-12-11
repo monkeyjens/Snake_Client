@@ -86,7 +86,7 @@ public class ServerCon {
 
         return response.getEntity(String.class);
     }
-
+    // Method to put a generic Json using the HTTP POST method.
     private String httpPut(String json, String path) {
         Client client = Client.create();
 
@@ -100,7 +100,7 @@ public class ServerCon {
 
         return response.getEntity(String.class);
     }
-
+    // Method to delete a generic String using the HTTP Delete method.
 
     private String httpDelete(String path) {
         Client client = Client.create();
@@ -158,7 +158,6 @@ public class ServerCon {
 
     /**
      * Gets high score from the game server.
-     *
      *
      * @return the high scores
      */

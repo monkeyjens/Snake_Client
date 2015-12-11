@@ -16,11 +16,11 @@ public class LoginUI extends JPanel {
     public LoginUI() {
         setLayout(null);
 
-        JLabel lblADifferentQuake = new JLabel("Guided Snakes On A Plane");
-        lblADifferentQuake.setForeground(new Color(255, 0, 0));
-        lblADifferentQuake.setFont(new Font("Luminari", Font.PLAIN, 15));
-        lblADifferentQuake.setBounds(149, 5, 192, 44);
-        add(lblADifferentQuake);
+        JLabel hiddenSnakeLbl = new JLabel("Hidden Snake Game");
+        hiddenSnakeLbl.setForeground(new Color(255, 0, 0));
+        hiddenSnakeLbl.setFont(new Font("Luminari", Font.PLAIN, 15));
+        hiddenSnakeLbl.setBounds(186, 5, 192, 44);
+        add(hiddenSnakeLbl);
 
         JLabel lblNewLabel_1 = new JLabel("Username:");
         lblNewLabel_1.setForeground(new Color(0, 153, 0));

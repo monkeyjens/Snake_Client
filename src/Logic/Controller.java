@@ -26,7 +26,7 @@ public class Controller  {
         mainframe.setVisible(true);
         mainframe.show(Myframe.LOGIN);
     }
-
+    //this method injects action listeners in the class and adds then to each of the UI panels.
     public void injectActionListeners() {
         mainframe.getLoginUI().addActionListener(new MainActionlistener());
         mainframe.getUserMenuPanel().addActionListener(new MainActionlistener());
